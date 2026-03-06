@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1990s Gaming Retrospective | The Golden Era</title>
+    <meta name="description" content="A nostalgic journey through the best video games of the 1990s. Featuring a playable 8-bit style mini-game, CRT aesthetics, and a curated list of legendary classics.">
+    
+    <!-- Fonts: Press Start 2P for headers, VT323 for body text to balance pixel aesthetics with readability -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+    
+    <!-- Base Styles -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- CRT Overlay Effect -->
+    <div class="crt-overlay"></div>
+
+    <!-- Global Audio Toggle -->
+    <button id="audio-toggle" class="audio-toggle" aria-label="Toggle Background Music">🔈 MUSIC: OFF</button>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="hero-bg">
+                <div class="synthwave-grid"></div>
+            </div>
+            <div class="hero-content container">
+                <h1 class="hero-title text-glow-primary">1990s<br>GAMING</h1>
+                <p class="hero-subtitle text-glow">A Nostalgic Retrospective</p>
+                <a href="#game-section" class="btn btn-primary insert-coin blink">INSERT COIN TO START</a>
+            </div>
+            
+            <!-- Scroll Indicator -->
+            <div class="scroll-indicator">
+                <span>SCROLL</span>
+                <div class="pixel-arrow">↓</div>
+            </div>
+        </section>
+
+        <!-- Playable Game Section -->
+        <section id="game-section" class="game-section">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h2 class="text-glow-primary">Retro Runner</h2>
+                    <p>Relive the golden era of side-scrollers. Press Space or Tap Jump!</p>
+                </div>
+                
+                <div class="game-wrapper">
+                    <div id="game-container" class="game-container crt-screen">
+                        <canvas id="gameCanvas" width="800" height="400"></canvas>
+                        
+                        <div id="game-overlay" class="game-overlay">
+                            <h3 class="text-glow">1990s RUNNER</h3>
+                            <p id="game-over-text" style="display:none; color: var(--clr-primary); margin-bottom: 1rem;">GAME OVER</p>
+                            <p id="final-score" style="display:none; margin-bottom: 2rem;">Score: 0</p>
+                            <button id="start-btn" class="btn blink">CLICK TO START</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mobile-controls">
+                    <button id="btn-jump" class="btn btn-control">JUMP [SPACE]</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Informational Roster Section -->
+        <section id="roster-section" class="roster-section">
+            <div class="container">
+                <div class="section-header text-center fade-in">
+                    <h2 class="text-glow">HALL OF FAME</h2>
+                    <p>The titles that defined a generation.</p>
+                </div>
+                
+                <!-- Dynamic Grid container -->
+                <div id="roster-grid" class="roster-grid">
+                    <!-- Cards will be populated by main.js -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content text-center">
+                <h2 class="text-glow-primary">GAME OVER</h2>
+                <p>Built with nostalgia for the era that defined modern gaming.</p>
+                <div class="social-links">
+                    <a href="#" class="btn btn-primary">GitHub</a>
+                    <a href="#" class="btn btn-primary">Twitter</a>
+                </div>
+                <p class="copyright">&copy; 2026 1990s Gaming Retrospective.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js" type="module"></script>
+</body>
+</html>
