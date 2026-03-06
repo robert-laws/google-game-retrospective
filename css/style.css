@@ -1,10 +1,13 @@
 :root {
-    /* 1990s Console Palette */
-    --clr-bg-dark: #0f0f1b; /* Deep off-black */
+    /* 1990s Premium Console Palette */
+    --clr-bg-dark: #0a0510; /* Deeper space black */
+    --clr-bg-glass: rgba(15, 10, 25, 0.7); /* Frosted dark purple */
     --clr-primary: #ff0055; /* Vibrant magenta/red */
+    --clr-primary-glow: rgba(255, 0, 85, 0.6);
     --clr-secondary: #00f3ff; /* Neon cyan */
+    --clr-secondary-glow: rgba(0, 243, 255, 0.6);
     --clr-accent: #ffe600; /* Arcade yellow */
-    --clr-text-main: #f0f0f0;
+    --clr-text-main: #fcfcfc;
     --clr-text-muted: #a0a0b0;
     
     /* Typography */
@@ -13,7 +16,11 @@
 
     /* Spacing & Layout */
     --max-width: 1200px;
-    --section-pad: 4rem 1rem;
+    --section-pad: 5rem 1.5rem;
+    
+    /* Borders & Glass */
+    --glass-border: 1px solid rgba(255, 255, 255, 0.1);
+    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
 }
 
 /* Reset & Base */
@@ -40,7 +47,24 @@ body {
 h1, h2, h3, h4, .btn {
     font-family: var(--font-heading);
     text-transform: uppercase;
-    line-height: 1.3;
+    line-height: 1.4;
+    letter-spacing: 1px;
+}
+
+/* Premium Animated Text Gradient */
+.text-gradient {
+    background: linear-gradient(90deg, var(--clr-secondary), var(--clr-primary), var(--clr-accent), var(--clr-secondary));
+    background-size: 300% auto;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: shine 5s linear infinite;
+}
+
+@keyframes shine {
+    to {
+        background-position: 300% center;
+    }
 }
 
 /* CRT Scanline Effect Overlay */
@@ -54,11 +78,11 @@ h1, h2, h3, h4, .btn {
     pointer-events: none;
     background: linear-gradient(
         rgba(18, 16, 16, 0) 50%,
-        rgba(0, 0, 0, 0.25) 50%
+        rgba(0, 0, 0, 0.3) 50%
     );
-    background-size: 100% 4px; /* Size of scanlines */
+    background-size: 100% 4px;
     mix-blend-mode: overlay;
-    opacity: 0.6;
+    opacity: 0.5;
 }
 
 /* Subtle CRT Flicker animation */
@@ -93,10 +117,19 @@ body::after {
 }
 
 .text-glow {
-    text-shadow: 0 0 10px var(--clr-secondary), 0 0 20px var(--clr-secondary);
+    text-shadow: 0 0 10px var(--clr-secondary-glow), 0 0 20px var(--clr-secondary-glow);
 }
 .text-glow-primary {
-    text-shadow: 0 0 10px var(--clr-primary), 0 0 20px var(--clr-primary);
+    text-shadow: 0 0 10px var(--clr-primary-glow), 0 0 20px var(--clr-primary-glow);
+}
+
+.glass-panel {
+    background: var(--clr-bg-glass);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    border-radius: 4px;
 }
 
 .audio-toggle {
@@ -104,19 +137,23 @@ body::after {
     top: 20px;
     right: 20px;
     z-index: 10000;
-    background: rgba(0, 0, 0, 0.7);
-    border: 2px solid var(--clr-secondary);
+    background: rgba(10, 5, 16, 0.8);
+    backdrop-filter: blur(4px);
+    border: 1px solid var(--clr-secondary);
     color: var(--clr-secondary);
     font-family: var(--font-body);
     font-size: 1.2rem;
     padding: 0.5rem 1rem;
     cursor: pointer;
-    transition: all 0.3s;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border-radius: 2px;
 }
 
 .audio-toggle:hover {
     background: var(--clr-secondary);
     color: #000;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px var(--clr-secondary-glow);
 }
 
 /* Component Imports */

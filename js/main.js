@@ -62,6 +62,29 @@ class BackgroundChiptune {
 document.addEventListener('DOMContentLoaded', () => {
     console.log("Welcome to the 1990s.");
     
+    // Create Dust Particles
+    const dustContainer = document.getElementById('dust-particles');
+    if (dustContainer) {
+        for (let i = 0; i < 50; i++) {
+            let dust = document.createElement('div');
+            dust.className = 'dust';
+            
+            // Randomize position, size, and animation delay
+            let x = Math.random() * 100;
+            let size = Math.random() * 3 + 1;
+            let delay = Math.random() * 8;
+            let duration = Math.random() * 5 + 5;
+            
+            dust.style.left = `${x}%`;
+            dust.style.width = `${size}px`;
+            dust.style.height = `${size}px`;
+            dust.style.animationDelay = `${delay}s`;
+            dust.style.animationDuration = `${duration}s`;
+            
+            dustContainer.appendChild(dust);
+        }
+    }
+    
     // Background Music Setup
     const bgMusic = new BackgroundChiptune();
     const audioBtn = document.getElementById('audio-toggle');
